@@ -5,13 +5,13 @@ import android.util.Log;
 import com.example.rus.cleanweather.domain.Interactor.GetWeatherDayListInteractor;
 import com.example.rus.cleanweather.presentation.mapper.WeatherDayModelDataMapper;
 import com.example.rus.cleanweather.presentation.model.WeatherDayModel;
-import com.example.rus.cleanweather.presentation.view.activity.detailed.DetailedActivityMVP;
+import com.example.rus.cleanweather.presentation.view.DetailedView;
 
 
 public class DetailedPresenter {
 
     private GetWeatherDayListInteractor getWeatherDayListInteractor;
-    private DetailedActivityMVP detailedActivityMVP;
+    private DetailedView detailedView;
 
     public DetailedPresenter(GetWeatherDayListInteractor getWeatherDayListInteractor) {
         this.getWeatherDayListInteractor = getWeatherDayListInteractor;
@@ -19,13 +19,13 @@ public class DetailedPresenter {
 
     }
 
-    public void attachView(DetailedActivityMVP detailedActivityMVP) {
-        this.detailedActivityMVP = detailedActivityMVP;
+    public void attachView(DetailedView detailedView) {
+        this.detailedView = detailedView;
     }
 
     public void getInfo(int position) {
         WeatherDayModel weatherDayModel = WeatherDayModelDataMapper.transform( getWeatherDayListInteractor.getWeatherDay(position));
-        detailedActivityMVP.setDetailedViews(weatherDayModel);
+        detailedView.setDetailedViews(weatherDayModel);
     }
 
 

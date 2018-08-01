@@ -12,10 +12,11 @@ import com.example.rus.cleanweather.AppApplication;
 import com.example.rus.cleanweather.R;
 import com.example.rus.cleanweather.presentation.model.WeatherDayModel;
 import com.example.rus.cleanweather.presentation.presenter.DetailedPresenter;
+import com.example.rus.cleanweather.presentation.view.DetailedView;
 
 import javax.inject.Inject;
 
-public class DetailedActivityMVP extends AppCompatActivity {
+public class DetailedActivityMVP extends AppCompatActivity implements DetailedView {
 
     private TextView day;
     private TextView temp;
