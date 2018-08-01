@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.rus.cleanweather.R;
 import com.example.rus.cleanweather.presentation.model.WeatherDayModel;
+import com.example.rus.cleanweather.presentation.view.activity.detailed.DetailedActivityMVP;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -63,10 +64,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView mTime;
         TextView mName;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(final View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.temp);
             mTime = itemView.findViewById(R.id.day);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.v("TAG", "OnClick");
+                    //Intent intent = DetailedInfoActivity.newIntent(itemView.getContext(), positionForBd);
+                    //Intent intent = DetailedActivityMVP.newIntent(itemView.getContext(), positionForBd);
+                    Intent intent = DetailedActivityMVP.newIntent(itemView.getContext(), positionForBd);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
         }
         public void bindPosition(int position){
             positionForBd = position;

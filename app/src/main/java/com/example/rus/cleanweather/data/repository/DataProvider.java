@@ -106,4 +106,8 @@ public class DataProvider {
             }
         });*/
     }
+
+    public WeatherDay getWeatherDay(int position) {
+        return WeatherDayMapper.transform(manager.getWeatherDay(position));
+    }
 }

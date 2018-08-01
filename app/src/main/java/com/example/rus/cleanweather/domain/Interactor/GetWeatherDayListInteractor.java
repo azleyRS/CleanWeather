@@ -31,4 +31,8 @@ public class GetWeatherDayListInteractor {
     public Single<Weather5> loadWeather() {
         return dataProvider.loadWeather();
     }
+
+    public WeatherDay getWeatherDay(int position) {
+        return dataProvider.getWeatherDay(position);
+    }
 }
